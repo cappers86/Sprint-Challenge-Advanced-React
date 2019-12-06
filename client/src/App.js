@@ -29,9 +29,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="tennis-players">
+      <div className="players">
       {this.state.playerData.map(players => (
-        <div className='cards' key={players.id}>
+        <div key={players.id}>
           <h1>{players.name}</h1>
           <h2>{players.country}</h2>
           <h2>{players.searches}</h2>
