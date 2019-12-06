@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state ={
+    name: "",
+    id: "",
+    country: "",
+    list: []
+  };
+
+  componentDidMount() {
+    axios
+    .get('http://localhost:5000/api/players')
+    .then (responce => {
+      console.log(responce);
+    })
+    .catch(error => console.log(error));
+  }
+  handleChanges = e => {
+    this.setState({
+      name: e.target.value
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        test
+      </div>
+    );
+  }
 }
 
+
 export default App;
+
+
+
